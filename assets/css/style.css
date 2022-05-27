@@ -10,7 +10,7 @@ html {
     font-family: sans-serif;
 }
 
-.Home {
+.home {
     position: relative;
     background-image: radial-gradient( farthest-corner at 40px 40px, #50c5ee 60%, rgba(0, 212, 255, 0.5) 100%);
     min-height: calc(100vh - 60px);
@@ -21,50 +21,50 @@ html {
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
 }
 
-.Home>h2 {
+.home>h2 {
     display: flex;
     justify-content: space-around;
     color: rgb(0, 0, 0);
 }
 
-.Home>div {
+.home>div {
     display: flex;
     justify-content: center;
     color: rgb(0, 0, 0);
 }
 
-.Home__container {
+.home-container {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 @media (max-width: 350px) {
-    .Home__container {
+    .home-container {
         justify-content: unset;
     }
 }
 
-.PaletaLista {
+.paleta-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 25px 50px;
 }
 
 @media (max-width: 1220px) {
-    .PaletaLista {
+    .paleta-list {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 840px) {
-    .PaletaLista {
+    .paleta-list {
         grid-template-columns: 1fr;
     }
 }
 
-.PaletaCardItem,
-.PaletaListaItem {
+.paleta-card-item,
+.paleta-list-item {
     font-family: 'Exo';
     background: rgba(255, 255, 255, 0.3);
     border-radius: 10px;
@@ -74,45 +74,49 @@ html {
     justify-content: space-around;
 }
 
-.PaletaCardItem {
-    margin: 20px 0;
+.paleta-card-item {
     height: 150px;
     width: 100%;
 }
 
+.paleta-card-item-foto {
+    height: 150px;
+    margin-right: -60px;
+}
+
 @media (max-width: 400px) {
-    .PaletaCardItem,
-    .PaletaListaItem {
+    .paleta-card-item,
+    .paleta-list-item {
         width: 210px;
         height: 180px;
     }
 }
 
-.PaletaCardItem>div,
-.PaletaListaItem>div {
+.paleta-card-item>div,
+.paleta-list-item>div {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
 }
 
-.PaletaCardItem__sabor,
-.PaletaListaItem__sabor {
+.paleta-card-item-sabor,
+.paleta-list-item-sabor {
     font-size: 1.5em;
     font-weight: 700;
     line-height: 100%;
 }
 
-.PaletaCardItem__descricao,
-.PaletaListaItem__descricao {
+.paleta-card-item-descricao,
+.paleta-list-item-descricao {
     font-size: 0.85em;
 }
 
-.PaletaCardItem__preco,
-.PaletaListaItem__preco {
+.paleta-card-item-preco,
+.paleta-list-item-preco {
     color: darkviolet;
 }
 
-.PaletaListaItem__foto {
+.paleta-list-item-foto {
     height: 150px;
     margin-right: -60px;
 }
@@ -124,11 +128,33 @@ html {
     padding: 2rem;
 }
 
-#idPaleta {
+#search-input {
     padding: 0.5rem;
     width: 315px;
     border: none;
     border-radius: 0.2rem;
+    border: 2px solid #ffffff;
+    outline: none;
+    font-size: 1rem;
+}
+
+.search-button {
+    background-color: transparent;
+    border: 2px solid #9400d3;
+    padding: 0.5rem;
+    color: #9400d3;
+    font-weight: 600;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    transition: all 0.6s ease-in-out;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.search-button:hover {
+    background-color: #9400d3;
+    color: #ffffff;
+    transform: scale(1.1);
 }
 
 .default-button {
@@ -138,7 +164,7 @@ html {
     color: #9400d3;
     font-weight: 600;
     border-radius: 0.2rem;
-    width: 300px;
+    width: 180px;
     cursor: pointer;
     transition: all 0.6s ease-in-out;
     font-size: 1rem;
@@ -147,7 +173,7 @@ html {
 .default-button:hover {
     background-color: #9400d3;
     color: #ffffff;
-    transform: scale(1.1)
+    transform: scale(1.1);
 }
 
 #paleta-escolhida-input-espaco {
@@ -157,7 +183,7 @@ html {
     width: 100%;
 }
 
-.Header {
+.header {
     max-width: 1110px;
     margin: 0 auto 25px auto;
     position: relative;
@@ -170,7 +196,7 @@ html {
     margin: 20px 0 35px 0;
 }
 
-.Logo {
+.logo {
     display: flex;
     align-items: center;
     border-radius: 10px;
@@ -179,7 +205,7 @@ html {
     height: 45px;
 }
 
-.Logo__titulo {
+.logo-title {
     position: absolute;
     left: 55px;
     font-family: "Exo";
@@ -187,57 +213,32 @@ html {
     font-size: 2.5em;
 }
 
-.Logo__icone {
+.logo-icon {
     position: absolute;
     left: -20px;
     top: -15px;
 }
 
-.Sacola {
-    position: relative;
-}
-
-.Sacola__icone {
-    cursor: pointer;
-}
-
-.Sacola__badge {
-    background-color: red;
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    vertical-align: middle;
-    position: absolute;
-    color: white;
-    font-size: 0.9em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    bottom: 0;
-    right: 0;
-}
-
 @media (max-width: 1220px) {
-    .Header {
+    .header {
         max-width: 720px;
     }
 }
 
 @media (max-width: 840px) {
-    .Header {
+    .header {
         max-width: 320px;
     }
 }
 
 @media (max-width: 400px) {
-    .Header {
+    .header {
         max-width: 250px;
     }
     .row {
         column-gap: 20px;
     }
-    .Logo__titulo {
+    .logo-titulo {
         font-size: 1.5em;
     }
 }
@@ -360,7 +361,7 @@ textarea {
     border-radius: 0.3rem;
 }
 
-.Acoes {
+.actions {
     display: flex;
     justify-content: space-around;
     width: 100%;
@@ -379,27 +380,51 @@ textarea {
     transition: all 0.5s ease-in-out;
 }
 
-.Acoes__editar {
+.actions-edit {
     color: blue;
     background-color: transparent;
     border: solid 1px blue;
 }
 
-.Acoes__editar:hover {
+.actions-edit:hover {
     background-color: blue;
     color: #fff;
     transform: scale(1.1);
 }
 
-.Acoes__apagar {
+.actions-delete {
     border: solid 1px red;
     color: red;
     background-color: transparent;
 }
 
-.Acoes__apagar:hover {
+.actions-delete:hover {
     color: #fff;
     background-color: red;
+    transform: scale(1.1);
+}
+
+.actions-edit {
+    color: #003cff;
+    border: solid 1px #003cff;
+    background-color: transparent;
+}
+
+.actions-edit:hover {
+    color: #fff;
+    background-color: #003cff;
+    transform: scale(1.1);
+}
+
+.actions-delete {
+    color: #ff0000;
+    border: solid 1px #ff0000;
+    background-color: transparent;
+}
+
+.actions-delete:hover {
+    color: #fff;
+    background-color: #ff0000;
     transform: scale(1.1);
 }
 
@@ -415,13 +440,13 @@ textarea {
     font-size: 1.5rem;
 }
 
-.btns_delete {
+.btns-delete {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
 }
 
-.btn_delete {
+.btn-delete {
     background-color: transparent;
     padding: .5rem;
     font-size: 1.2rem;
@@ -431,22 +456,22 @@ textarea {
     transition: all 0.5s ease-in-out;
 }
 
-.btn_delete_no {
+.btn-delete-no {
     color: red;
     border: solid 1px red;
 }
 
-.btn_delete_no:hover {
+.btn-delete-no:hover {
     background-color: red;
     color: #fff;
 }
 
-.btn_delete_yes {
+.btn-delete-yes {
     color: green;
     border: solid 1px green;
 }
 
-.btn_delete_yes:hover {
+.btn-delete-yes:hover {
     background-color: green;
     color: white;
 }

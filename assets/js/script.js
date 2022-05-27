@@ -9,19 +9,19 @@ async function findAllPaletas() {
     paletas.forEach(function(paleta) {
         document.querySelector("#paletaList").insertAdjacentHTML(
             "beforeend",
-            `<div class="PaletaListaItem" id="PaletaListaItem_'${paleta._id}'">
+            `<div class="paleta-list-item" id="paleta-list-'${paleta._id}'">
           <div>
-            <div class="PaletaListaItem__sabor">${paleta.sabor}</div>
-            <div class="PaletaListaItem__preco">R$ ${paleta.preco}</div>
-            <div class="PaletaListaItem__descricao">${paleta.descricao}</div>
+            <div class="paleta-list-item-sabor">${paleta.sabor}</div>
+            <div class="paleta-list-item-preco">R$ ${paleta.preco}</div>
+            <div class="paleta-list-item-descricao">${paleta.descricao}</div>
 
-            <div class="PaletaListaItem__acoes Acoes">
-              <button class="Acoes__editar btn" onclick="abrirModal('${paleta._id}')">Editar</button>
-              <button class="Acoes__apagar btn" onclick="abrirModalDelete('${paleta._id}')">Apagar</button>
+            <div class="actions">
+              <button class="actions-edit btn" onclick="showModal('${paleta._id}')">Editar</button>
+              <button class="actions-delete btn" onclick="showModalDelete('${paleta._id}')">Apagar</button>
             </div>
           </div>
 
-          <img class="PaletaListaItem__foto" src="./${paleta.foto}" alt="Paleta de ${paleta.sabor}"/>
+          <img class="paleta-list-item-foto" src="./${paleta.foto}" alt="Paleta de ${paleta.sabor}"/>
 
         </div>
         `
@@ -32,14 +32,12 @@ async function findAllPaletas() {
 findAllPaletas();
 
 async function findPaletaById() {
-    const id = document.querySelector("#idPaleta").value;
+    const id = document.querySelector("#search-input").value;
 
     if (id == "") {
         localStorage.setItem("message", "Digite um ID para pesquisar");
         localStorage.setItem("type", "danger");
-
         showMessageAlert();
-
         return;
     }
 
@@ -49,31 +47,31 @@ async function findPaletaById() {
     if (paleta.message != undefined) {
         localStorage.setItem("message", paleta.message);
         localStorage.setItem("type", "danger");
-
         showMessageAlert();
-
         return;
     }
     document.querySelector(".list-all").style.display = "block";
-    document.querySelector(".PaletaLista").style.display = "none";
-    const paletaEscolhidaDiv = document.querySelector("#paletaEscolhida");
+    document.querySelector(".paleta-list").style.display = "none";
+    const chosenPaletaDiv = document.querySelector("#chosen-paleta");
 
-    paletaEscolhidaDiv.innerHTML = `
-    <div class="PaletaCardItem" id="PaletaListaItem_'${paleta._id}'">
-      <div>
-        <div class="PaletaCardItem__sabor">${paleta.sabor}</div>
-        <div class="PaletaCardItem__preco">R$ ${paleta.preco}</div>
-        <div class="PaletaCardItem__descricao">${paleta.descricao}</div>
-      </div>
-      <img class="PaletaCardItem__foto" src="./${paleta.foto}" alt="Paleta de ${paleta.sabor}"/>
-      <div class="PaletaListaItem__acoes Acoes">
-          <button class="Acoes__editar btn" onclick="abrirModal('${paleta._id}')">Editar</button>
-          <button class="Acoes__apagar btn" onclick="abrirModalDelete('${paleta._id}')">Apagar</button>
-      </div>
-    </div>`;
+    chosenPaletaDiv.innerHTML = `
+    <div class="paleta-card-item" id="paleta-card-item-${paleta._id}">
+    <div>
+        <div class="paleta-card-item-sabor">${paleta.sabor}</div>
+        <div class="paleta-card-item-preco">R$ ${paleta.preco}</div>
+        <div class="paleta-card-item-descricao">${paleta.descricao}</div>
+      
+        <div class="actions">
+            <button class="actions-edit btn" onclick="showModal('${paleta._id}')">Editar</button> 
+            <button class="actions-delete btn" onclick="showModalDelete('${paleta._id}')">Apagar</button> 
+        </div>
+    </div>
+        <img class="paleta-card-item-foto" src="${paleta.foto}" alt="Paleta de ${paleta.sabor}" />
+    </div>
+`;
 }
 
-async function abrirModal(id = "") {
+async function showModal(id = "") {
     if (id != "") {
         document.querySelector("#title-header-modal").innerText =
             "Atualizar uma Paleta";
@@ -96,7 +94,7 @@ async function abrirModal(id = "") {
     document.querySelector("#overlay").style.display = "flex";
 }
 
-function fecharModal() {
+function closeModal() {
     document.querySelector(".modal-overlay").style.display = "none";
     document.querySelector("#sabor").value = "";
     document.querySelector("#preco").value = 0;
@@ -148,22 +146,22 @@ async function submitPaleta() {
         localStorage.setItem("message", "Paleta criada com sucesso");
         localStorage.setItem("type", "sucess");
     }
-    // document.location.reload(true);
+    document.location.reload(true);
 
-    // fecharModal();
+    closeModal();
 }
 
-function abrirModalDelete(id) {
+function showModalDelete(id) {
     document.querySelector("#overlay-delete").style.display = "flex";
 
-    const btnSim = document.querySelector(".btn_delete_yes");
+    const btnSim = document.querySelector(".btn-delete-yes");
 
     btnSim.addEventListener("click", function() {
         deletePaleta(id);
     });
 }
 
-function fecharModalDelete() {
+function closeModalDelete() {
     document.querySelector("#overlay-delete").style.display = "none";
 }
 
@@ -179,7 +177,7 @@ async function deletePaleta(id) {
     localStorage.setItem("message", result.message);
     localStorage.setItem("type", "sucess");
     document.location.reload(true);
-    fecharModalDelete();
+    closeModalDelete();
 }
 
 function closeMessageAlert() {
