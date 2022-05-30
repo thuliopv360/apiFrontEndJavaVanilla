@@ -22,7 +22,7 @@
 
                 <div class="search-space">
                     <input type="text" id="search-input" placeholder="Digite o ID da paleta" />
-                    <button class="search-button" onclick="findPaletaById()"><i class="bi bi-search"></i></button>
+                    <button class="search-button"><i class="bi bi-search"></i></button>
                 </div>
             </div>
         </header>
@@ -31,7 +31,7 @@
             <span class="msg-alert"></span>
             <div class="btns-list-cad">
                 <a href="/" class="default-button list-all">Listar todas as paletas</a>
-                <button type="button" onclick="showModal()" class="default-button">Cadastrar paleta</button>
+                <button type="button" id="add-paleta" class="default-button">Cadastrar paleta</button>
             </div>
         </section>
 
@@ -40,7 +40,7 @@
 
                 <div class="modal-header">
                     <h2 id="title-header-modal">Cadastrar uma nova paleta</h2>
-                    <a class="close-modal" onclick="closeModal()">x</a>
+                    <a class="close-modal" id="close-modal-submit">x</a>
                 </div>
                 <div class="modal-body">
                     <form>
@@ -49,7 +49,7 @@
                         <input type="number" name="preco" id="preco" placeholder="Preco da Paleta">
                         <textarea type="text" name="descricao" id="descricao" placeholder="Descricao da Paleta" rows="5"></textarea>
                         <input type="text" name="foto" id="foto" placeholder="Link da foto da Paleta">
-                        <button onclick="submitPaleta(); return false" id="button-form-modal">Cadastrar</button>
+                        <button onclick="return false" id="button-form-modal">Cadastrar</button>
                     </form>
                 </div>
             </div>
@@ -58,23 +58,23 @@
             <div class="modal">
                 <div class="modal-header">
                     <h2 id="title-header-modal">Confirmação de deleção</h2>
-                    <a class="close-modal" onclick="closeModalDelete()">x</a>
+                    <a class="close-modal" id="close-modal-delete">x</a>
                 </div>
                 <div class="modal-body-delete">
                     <p>Deseja realmente apagar essa paleta?</p>
                     <div class="btns-delete">
-                        <button class="btn-delete-no btn-delete" onclick="closeModalDelete()">Não</button>
-                        <button class="btn-delete-yes btn-delete">Sim</button>
+                        <button class="btn-delete-no btn-delete">Não</button>
+                        <button class="btn-delete-yes btn-delete ">Sim</button>
                     </div>
                 </div>
             </div>
         </section>
-        <div class="home-container">
-            <div class="paleta-list" id="paletaList"></div>
-            <div id="chosen-paleta"></div>
+        <div class="home-container ">
+            <div class="paleta-list " id="paletaList "></div>
+            <div id="chosen-paleta "></div>
         </div>
     </div>
-    <script src="./assets/js/script.js"></script>
+    <script type="module" src="./assets/js/script.js "></script>
 </body>
 
 </html>
