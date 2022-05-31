@@ -1,8 +1,6 @@
 import { baseUrl } from './env.js'
 
 export default async function showModal(id = "") {
-    console.log("ola")
-
     if (id != "") {
         document.querySelector("#title-header-modal").innerText =
             "Atualizar uma Paleta";
