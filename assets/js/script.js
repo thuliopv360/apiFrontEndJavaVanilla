@@ -1,11 +1,10 @@
-import findAllPaletas from '../modules/findAllPaletas.js'
-import showMessageAlert from '../modules/showMessageAlert.js'
-import closeModal from '../modules/closeModal.js'
-import submitPaleta from '../modules/submitPaleta.js';
-import showModal from '../modules/showModal.js';
+import findAllPaletas from "../modules/findAllPaletas.js";
+import showMessageAlert from "../modules/showMessageAlert.js";
+import closeModal from "../modules/closeModal.js";
+import submitPaleta from "../modules/submitPaleta.js";
+import showModal from "../modules/showModal.js";
 import findPaletaById from "../modules/findPaletaById.js";
-import closeModalDelete from '../modules/closeModalDelete.js';
-
+import closeModalDelete from "../modules/closeModalDelete.js";
 
 await findAllPaletas();
 showMessageAlert();

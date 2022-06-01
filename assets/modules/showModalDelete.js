@@ -1,4 +1,4 @@
-import deletePaleta from './deletePaleta.js'
+import deletePaleta from "./deletePaleta.js";
 
 export default function showModalDelete(id) {
     document.querySelector("#overlay-delete").style.display = "flex";

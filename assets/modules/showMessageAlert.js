@@ -1,6 +1,5 @@
-import closeMessageAlert from './closeMessageAlert.js'
-import { msgAlert } from './env.js'
-
+import closeMessageAlert from "./closeMessageAlert.js";
+import { msgAlert } from "./env.js";
 
 export default function showMessageAlert() {
     msgAlert.innerText = localStorage.getItem("message");

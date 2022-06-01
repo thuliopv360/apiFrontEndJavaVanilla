@@ -1,5 +1,5 @@
-import closeModalDelete from './closeModalDelete.js'
-import { baseUrl } from './env.js'
+import closeModalDelete from "./closeModalDelete.js";
+import { baseUrl } from "./env.js";
 
 export default async function deletePaleta(id) {
     const response = await fetch(`${baseUrl}/delete-paleta/${id}`, {

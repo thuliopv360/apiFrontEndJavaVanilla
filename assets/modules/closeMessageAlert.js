@@ -1,4 +1,4 @@
-import { msgAlert } from './env.js'
+import { msgAlert } from "./env.js";
 
 export default function closeMessageAlert() {
     setTimeout(function() {

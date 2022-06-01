@@ -1,10 +1,9 @@
-import { baseUrl } from './env.js'
-import showMessageAlert from './showMessageAlert.js'
-import showModal from './showModal.js';
-import showModalDelete from './showModalDelete.js';
+import { baseUrl } from "./env.js";
+import showMessageAlert from "./showMessageAlert.js";
+import showModal from "./showModal.js";
+import showModalDelete from "./showModalDelete.js";
 
 export default async function findPaletaById() {
-
     const id = document.querySelector("#search-input").value;
 
     if (id == "") {
@@ -52,6 +51,5 @@ export default async function findPaletaById() {
         btnDelete.addEventListener("click", function() {
             showModalDelete(paleta._id);
         });
-    })
-
+    });
 }

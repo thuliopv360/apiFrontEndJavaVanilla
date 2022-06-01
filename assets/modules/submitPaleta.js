@@ -1,7 +1,6 @@
-import closeModal from './closeModal.js'
-import showMessageAlert from './showMessageAlert.js'
-import { baseUrl } from './env.js'
-
+import closeModal from "./closeModal.js";
+import showMessageAlert from "./showMessageAlert.js";
+import { baseUrl } from "./env.js";
 
 export default async function submitPaleta() {
     const id = document.querySelector("#id").value;

@@ -1,4 +1,4 @@
-import { baseUrl } from './env.js'
+import { baseUrl } from "./env.js";
 
 export default async function showModal(id = "") {
     if (id != "") {
